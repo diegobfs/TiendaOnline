@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>DAW Servlets / JSPs</title>
+	
+    <style>
+		
+		header{
+				text-align: center;
+			}
+			
+			nav{
+  				font-family: sans-serif;
+ 				width: 1000px;
+  				margin: 0 auto;
+				margin-bot: 50px;
+				position: absolute;
+				left: 25%;
+			}
+			
+			ul{
+  				list-style: none;
+			}
+
+			#menu li>a{
+ 				background-color: #00BFFF;
+  				color: black;
+  				padding: 10px;
+  				display: block;
+  				text-decoration: none;
+  				min-width: 100px;
+			}
+
+			#menu li>a:hover{
+  				color: black;
+  				background-color: #eaeaea;
+			}
+
+			#menu>li{
+  				float: left;
+  				text-align:center
+			}
+
+			#menu>li>ul{
+ 			 display: none;
+
+			}
+			#menu>li:hover>ul {
+  				display:block;
+			}
+
+		#formulario{
+			background-color: #7ff5e5;
+			margin-top: 100px;
+			margin-left: 35%;
+			margin-right: 35%;
+		}
+
+		form{
+			margin-left: 25%;
+			font-size: 20px;
+		}
+
+        footer{
+				background-color: #00BFFF;
+				margin-top: 50px;
+				font: sans-serif;
+				font-size: 15px;
+			}
+
+			div.relative {
+  				position: relative;
+  				width: 100%;
+  				height: 190px;
+				bottom:0;
+			} 
+
+			.direccion{
+				line-height: 8px;
+			}
+
+			div.absolute {
+  				position: absolute;
+				margin-top:40px;
+  				left: 10%;
+  				width: 400px;
+  				height: 50px;
+				color: black;
+				float:left;
+			}
+
+			div.absolute2 {
+  				position: absolute;
+				margin-top:10px;
+  				left: 40%;
+  				width: 400px;
+  				height: 50px;
+				color: black;
+				text-align:center;
+			}
+
+			div.absolute3 {
+  				position: absolute;
+				margin-top: 70px;
+  				left: 80%;
+  				width: 200px;
+  				height: 50px;
+			}
+			div.absolute3 a{
+				color: black;
+			}
+    </style>
+</head>
+<body>
+
+	<div class="contenedor">
+
+		<header>
+			<img src= "Images\Fondo logo.png" widht="500" height="300">
+
+		</header>
+
+		<!-- Menú de navegación del sitio -->
+		<nav>
+		<div class="navegador">
+			<ul id="menu">
+				<li><a href="index.html">Inicio</a></li>
+				<li><a href="Biblioteca.html">Biblioteca</a>
+					<ul>
+						<li><a href="Biblioteca\Aladin.html">Aladín</a></li>
+						<li><a href="Biblioteca\Dud Boost.html">Dud Boost</a></li>
+						<li><a href="Biblioteca\El Nefes.html">El Nefes</a></li>
+						<li><a href="Biblioteca\Elmas.html">Elmas</a></li>
+						<li><a href="Biblioteca\StarBuzz.html">StarBuzz</a></li>
+						<li><a href="Biblioteca\Sabores.html">Sabores</a></li>
+					</ul>
+				</li>
+				<li><a href="Catalogo.html">Catálogo</a></li>
+				<li><a href="Tienda.html">Tienda</a></li>
+				<li><a href="Nosotros.html">Nosotros</a>
+					<ul>
+						
+						<li><a href="Nosotros\Politica de privacidad.html">Política de privacidad</a></li>
+						<li><a href="Nosotros\Quienes somos.html">Quienes somos</a></li>
+					</ul>
+				</li>
+				<li><a href="Noticias.html">Noticias</a></li>
+				<li><a href="InicioSesion.html"><strong>Iniciar sesión</strong></a></li>
+			</ul>
+		</div>
+		</nav>
+	
+		<div id="formulario">
+
+			<br>
+			<strong><p style="text-align: center; font-size: 30px;">Inserta tus datos</p></strong>
+			<hr><br>
+    		<form action="/ProyectoFinal/Registro" method="post">
+
+        		<label class="pad_top">Nombre:</label>
+        		<input type="text" name="nombre" required><br><br>
+
+        		<label class="pad_top">Apellido:</label>
+        		<input type="text" name="apellido" required><br><br>
+
+       			<label class="pad_top">Email:</label>
+        		<input type="email" name="email" required><br><br>
+
+        		<label class="pad_top">Contraseña:</label>
+        		<input type="password" name="contrasena" required><br><br>
+
+        		<label class="pad_top">Fecha nacimiento:</label>
+        		<input type="date" name= "fecha" required><br><br>
+
+				<label class="pad_top">Sexo:</label>
+				<input type="radio" name="boton" required> Hombre
+				<input type="radio" name="boton" required> Mujer <br><br>
+
+				<label class="pad_top">Teléfono:</label>
+				<input type="tel" name="telefono" required><br><br>
+
+				<label class="pad_top">Dirección:</label>
+				<input type="text" name="direccion" required><br><br>
+		
+        		<label class="pad_top">País:</label>
+        		<select id="country" name="pais" required>
+            		<option value="hombre">España</option>
+					<option value="mujer">Venezuela</option>
+					<option value="mujer">México</option>
+					<option value="mujer">Argentina</option>
+					<option value="mujer">Perú</option>
+				</select><br><br>
+		
+				<label class="pad_top">¿Ha usado alguna vez una shisha?:</label>
+				<input type="radio" name="pregunta" required> Sí
+				<input type="radio" name="pregunta" required> No <br><br>
+
+				<input type="submit" value="Crear cuenta" class="validar">
+			
+				<br><br>
+    		</form>
+		</div>
+
+    <!-- Pie del sitio -->
+			<footer>
+				<div class="relative">
+  					<div class="absolute">
+						<p><img src= "https://www.flaticon.es/svg/static/icons/svg/633/633898.svg" widht="200" height="17">	
+						Rúa de Lope Gómez de Marzoa, s/n,15705 Santiago de Compostela, A Coruña</p>
+
+						<p> <img src= "https://www.flaticon.es/svg/static/icons/svg/633/633544.svg" widht="200" height="17">
+						674680404</p>
+
+						<p><img src= "https://www.flaticon.es/svg/static/icons/svg/95/95645.svg" widht="200" height="17">
+						ShishaPrime@gmail.com</p>
+
+					</div>
+
+					<div class="absolute2">
+						<p><strong>SHISHA PRIME</strong></p>
+						
+						<p>Horario:</p>
+						<p>De Lunes a Viernes de 9h a 14h y de 16h a 20h.</p>
+
+						<p>Follow us</p>
+						<p>
+						<img src= "https://www.flaticon.es/svg/static/icons/svg/1384/1384047.svg" widht="200" height="17">
+						<img src= "https://www.flaticon.es/svg/static/icons/svg/733/733603.svg" widht="200" height="17">
+						<img src= "https://www.flaticon.es/svg/static/icons/svg/1051/1051331.svg" widht="200" height="17">
+						</p>
+					</div>
+
+					<div class="absolute3">
+						<p><a href="Nosotros\Quienes somos.html">@Quienes somos</a></p>
+						<p><a href="Nosotros\Politica de privacidad.html">@Política de privacidad</a></p>
+					</div>
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

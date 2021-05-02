@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>SHISHA PRIME-Elmas</title>
+		<style>	
+			
+			header{
+				text-align: center;
+			}
+			
+
+			nav{
+				font-family: sans-serif;
+ 				width: 1000px;
+  				margin: 0 auto;
+				margin-bot: 50px;
+				position: absolute;
+				left: 25%;
+			}
+			
+			ul{
+  				list-style: none;
+			}
+			#menu li>a{
+ 				background-color: #00BFFF;
+  				color: black;
+  				padding: 10px;
+  				display: block;
+  				text-decoration: none;
+  				min-width: 100px;
+			}
+			#menu li>a:hover{
+  				color: black;
+  				background-color: #eaeaea;
+			}
+			#menu>li{
+  				float: left;
+  				text-align:center
+			}
+			#menu>li>ul{
+ 			 display: none;
+			}
+			#menu>li:hover>ul {
+  				display:block;
+			}
+			h2{
+				text-align: center;
+				margin-top: 100px;
+			}
+
+			.cuerpo{
+				text-align: center;
+			}
+			
+			div.gallery {
+  				border: 1px solid #00BFFF;
+			}
+
+			div.gallery:hover {
+  				border: 1px solid #00BFFF;
+			}
+
+			div.gallery img {
+  				width: 100%;
+  				height: auto;
+			}
+
+			div.desc {
+  				padding: 15px;
+  				text-align: center;
+			}
+			* {
+  				box-sizing: border-box;
+			}
+			.responsive {
+  				padding: 0 6px;
+  				float: left;
+  				width: 24.99999%;
+			}
+
+			@media only screen and (max-width: 700px) {
+  				.responsive {
+    					width: 49.99999%;
+    					margin: 6px 0;
+  				}
+			}
+
+			@media only screen and (max-width: 500px) {
+  				.responsive {
+   					 width: 100%;
+  				}
+			}
+
+			.clearfix:after {
+  				content: "";
+  				display: table;
+  				clear: both;
+			}
+
+			footer{
+				background-color: #00BFFF;
+				margin-top: 50px;
+				font: sans-serif;
+				font-size: 15px;
+			}
+
+			div.relative {
+  				position: relative;
+  				width: 100%;
+  				height: 190px;
+				bottom:0;
+			} 
+
+			.direccion{
+				line-height: 8px;
+			}
+
+			div.absolute {
+  				position: absolute;
+				margin-top:40px;
+  				left: 10%;
+  				width: 400px;
+  				height: 50px;
+				color: black;
+				float:left;
+			}
+
+			div.absolute2 {
+  				position: absolute;
+				margin-top:10px;
+  				left: 40%;
+  				width: 400px;
+  				height: 50px;
+				color: black;
+				text-align:center;
+			}
+
+			div.absolute3 {
+  				position: absolute;
+				margin-top: 70px;
+  				left: 80%;
+  				width: 200px;
+  				height: 50px;
+			}
+			div.absolute3 a{
+				color: black;
+			}
+
+		</style>
+
+		<script>
+			var Loading = (loadingDelayHidden = 0) => {
+
+    
+    			// Variables
+    			let loading = null;
+    			const myLoadingDelayHidden = loadingDelayHidden;
+    			let imgs = [];
+    			let lenImgs = 0;
+    			let counterImgsLoading = 0;
+
+    			// Funciones
+
+    		/**
+    		 * Método que aumenta el contador de las imágenes cargadas
+     		*/
+    		function incrementCounterImgs() {
+        		counterImgsLoading += 1;
+        		// Comprueba si todas las imágenes están cargadas
+       			 if (counterImgsLoading === lenImgs) hideLoading();
+    		}
+
+    		/**
+     			* Ocultar HTML
+     		*/
+    		function hideLoading() {
+        		// Comprueba que exista el HTML
+        		if(loading !== null) {
+            		// Oculta el HTML de "cargando..." quitando la clase .show
+            		loading.classList.remove('show');
+
+            		// Borra el HTML
+            		setTimeout(function () {
+                		loading.remove();
+            		}, myLoadingDelayHidden);
+        		}
+    		}
+
+    /**
+     * Método que inicia la lógica
+     */
+    function init() {
+        /* Comprobar que el HTML esté cargadas */
+        document.addEventListener('DOMContentLoaded', function () {
+            loading = document.querySelector('.loading');
+            imgs = Array.from(document.images);
+            lenImgs = imgs.length;
+
+            /* Comprobar que todas las imágenes estén cargadas */
+            if(imgs.length === 0) {
+                // No hay ninguna
+                hideLoading();
+            } else {
+                // Una o más
+                imgs.forEach(function (img) {
+                    // A cada una le añade un evento que cuando se carge la imagen llame a la funcion incrementCounterImgs
+                    img.addEventListener('load', incrementCounterImgs, false);
+                });
+            }
+        });
+    }
+
+    			return {
+        			'init': init
+    			}
+			}
+
+			// Para usarlo se declara e inicia. El número es el tiempo transcurrido para borra el HTML una vez cargado todos los elementos, en este caso 1 segundo: 1000 milisegundos,
+			Loading(1000).init();
+		</script>
+
+	</head>
+	<body>
+
+		<!-- Loading HTML -->
+		<div class="loading show">
+    		<div class="spin"></div>
+		</div>
+
+		<div class="contenedor">
+
+			<header>
+				<img src= "..\Images\Fondo logo.png" widht="500" height="300">
+
+			</header>
+
+			<!-- Menú de navegación del sitio -->
+			<nav>
+			<div class="navegador">
+				<ul id="menu">
+					<li><a href="..\index.html">Inicio</a></li>
+					<li><a href="..\Biblioteca.html">Biblioteca</a>
+						<ul>
+							<li><a href="Aladin.html">Aladín</a></li>
+							<li><a href="Dud Boost.html">Dud Boost</a></li>
+							<li><a href="El Nefes.html">El Nefes</a></li>
+							<li><a href="Elmas.html"><strong>Elmas</strong></a></li>
+							<li><a href="StarBuzz.html">StarBuzz</a></li>
+							<li><a href="Sabores.html">Sabores</a></li>
+						</ul>
+					</li>
+					<li><a href="..\Catalogo.html">Catálogo</a></li>
+					<li><a href="..\Tienda.html">Tienda</a></li>
+					<li><a href="..\Nosotros.html">Nosotros</a>
+						<ul>
+							
+							<li><a href="..\Nosotros\Politica de privacidad.html">Política de privacidad</a></li>
+							<li><a href="..\Nosotros\Quienes somos.html">Quienes somos</a></li>
+						</ul>
+					</li>
+					<li><a href="..\Noticias.html">Noticias</a></li>
+					<li><a href="..\InicioSesion.html">Iniciar sesión</a></li>
+				</ul>
+			</div>
+			</nav>
+				
+
+			<h2>Cachimbas Elmas</h2>
+
+			<div class="cuerpo">
+				<p>Las cachimbas Elmas son las sishas con más rendimiento y con una forma muy tradicional. Además destacan por el enganche de la cazoleta y por la ausencia de la purga, también conocidas como bolas de purga.</p>	
+			</div>
+
+			<div class="responsive">
+  				<div class="gallery">
+  					<a target="_blank" href="..\Images\Elmas 1.jpg">
+   						<img src="..\Images\Elmas 1.jpg" alt="Cinque Terre" width="600" height="400">
+  					</a>
+  					<div class="desc">Elmas Narguile 628</div>
+				</div>
+			</div>
+
+			<div class="responsive">
+  				<div class="gallery">
+  					<a target="_blank" href="..\Images\Elmas 2.jpg">
+   						<img src="..\Images\Elmas 2.jpg" alt="Cinque Terre" width="600" height="400">
+  					</a>
+  					<div class="desc">Elmas Narguile</div>
+				</div>
+			</div>
+			
+
+			<div class="responsive">
+  				<div class="gallery">
+  					<a target="_blank" href="..\Images\Elmas 3.jpg">
+   						<img src="..\Images\Elmas 3.jpg" alt="Cinque Terre" width="600" height="400">
+  					</a>
+  					<div class="desc">Elmas Narguile oriental</div>
+				</div>
+			</div>
+
+			<div class="responsive">
+  				<div class="gallery">
+  					<a target="_blank" href="..\Images\Elmas 4.jpg">
+   						<img src="..\Images\Elmas 4.jpg" alt="Cinque Terre" width="600" height="400">
+  					</a>
+  					<div class="desc">Elmas Narguile turco</div>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+
+			<!-- Pie del sitio -->
+			<footer>
+				<div class="relative">
+  					<div class="absolute">
+						<p><img src= "https://www.flaticon.es/svg/static/icons/svg/633/633898.svg" widht="200" height="17">	
+						Rúa de Lope Gómez de Marzoa, s/n,15705 Santiago de Compostela, A Coruña</p>
+
+						<p> <img src= "https://www.flaticon.es/svg/static/icons/svg/633/633544.svg" widht="200" height="17">
+						674680404</p>
+
+						<p><img src= "https://www.flaticon.es/svg/static/icons/svg/95/95645.svg" widht="200" height="17">
+						ShishaPrime@gmail.com</p>
+
+					</div>
+
+					<div class="absolute2">
+						<p><strong>SHISHA PRIME</strong></p>
+						
+						<p>Horario:</p>
+						<p>De Lunes a Viernes de 9h a 14h y de 16h a 20h.</p>
+
+						<p>Follow us</p>
+						<p>
+						<img src= "https://www.flaticon.es/svg/static/icons/svg/1384/1384047.svg" widht="200" height="17">
+						<img src= "https://www.flaticon.es/svg/static/icons/svg/733/733603.svg" widht="200" height="17">
+						<img src= "https://www.flaticon.es/svg/static/icons/svg/1051/1051331.svg" widht="200" height="17">
+						</p>
+					</div>
+
+					<div class="absolute3">
+						<p><a href="..\Nosotros\Quienes somos.html">@Quienes somos</a></p>
+						<p><a href="..\Nosotros\Politica de privacidad.html">@Política de privacidad</a></p>
+					</div>
+				</div>
+			</footer>
+		</div>	
+	</body>
+</html>
